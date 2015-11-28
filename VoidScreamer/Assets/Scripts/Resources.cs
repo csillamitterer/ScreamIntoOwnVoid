@@ -278,7 +278,7 @@ public class Resources : MonoBehaviour {
 		
 
 		if (distanceRemaining <= 0) {
-			Debug.Log ("You Win");
+			Debug.Log ("You Win (" + population.ToString() + " population)" );
 		}
 	}
 }
