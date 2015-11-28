@@ -202,6 +202,8 @@ public class Resources : MonoBehaviour {
 
 		float LSGeneration = (powerToLS*power) * LSPerPower;
 
+		morale = 0;
+
 		float foodConsumption;
 		if (Mathf.Approximately(foodQuantity, 1)) {
 			foodConsumption = population * foodConsumeRate1;
@@ -239,6 +241,13 @@ public class Resources : MonoBehaviour {
 		}
 
 
+		// population growth/shrinking from morale
+		float standardisedRoll = (Random.Range (0, maxMorale) + Random.Range (0, maxMorale) + Random.Range (0, maxMorale) + Random.Range (0, maxMorale) + Random.Range (0, maxMorale)) / 5;
+		float growth = morale - standardisedRoll;
+
+		growth = growth / 10;
+		population += Mathf.RoundToInt(growth);
+
 		// update values
 		fuel -= fuelConsumption;
 		food += foodGenerationRate - foodConsumption;
@@ -253,7 +262,6 @@ public class Resources : MonoBehaviour {
 
 		if (population > lifeSupport) {
 			population = Mathf.FloorToInt(lifeSupport);
-			morale = 0;
 		}
 
 		if (Mathf.Approximately(food, 0) || Mathf.Approximately(water, 0)) {
