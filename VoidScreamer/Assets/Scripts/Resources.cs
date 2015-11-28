@@ -55,8 +55,7 @@ public class Resources : MonoBehaviour {
 	public float LSPerPower = 1.0f;
 	public float LSPerPerson = 1.0f;
 
-	public float SFGenerationRate = 1.0f;
-	public float SFConsumeRate = 1.0f;
+	public float FoodPerPower = 0.5f;
 
 	public float deceleration = 1.0f; 
 
@@ -201,6 +200,7 @@ public class Resources : MonoBehaviour {
 		speed += fuelToSpeed * speedPerFuel - deceleration;
 
 		float LSGeneration = (powerToLS*power) * LSPerPower;
+		float foodGeneration = foodGenerationRate + (powerToSF * power) * FoodPerPower;
 
 		morale = 0;
 
@@ -250,7 +250,7 @@ public class Resources : MonoBehaviour {
 
 		// update values
 		fuel -= fuelConsumption;
-		food += foodGenerationRate - foodConsumption;
+		food += foodGeneration - foodConsumption;
 		water += waterGenerationRate - waterConsumption;
 
 		lifeSupport = LSGeneration;
