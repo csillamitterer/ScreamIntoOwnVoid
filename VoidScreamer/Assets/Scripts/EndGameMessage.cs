@@ -6,7 +6,7 @@ public class EndGameMessage : MonoBehaviour {
 
 	void EndGame(string type) {
 		if (type == "Fuel") {
-			gameObject.GetComponent<Text> ().text = "YOU RAN OUT OF FUEL\n\n\n\nYOU LOSE";
+			gameObject.GetComponent<Text> ().text = "YOU RAN OUT OF FUEL\n\n\nYOU LOSE";
 		} else if (type == "Population") {
 			gameObject.GetComponent<Text> ().text = "EVERYONE DIED\n\n\n\nYOU LOSE";
 		} else if (type == "Food") {
