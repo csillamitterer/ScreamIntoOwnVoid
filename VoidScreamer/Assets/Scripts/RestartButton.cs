@@ -9,4 +9,8 @@ public class RestartButton : MonoBehaviour {
 	public void Quit() {
 		Application.Quit ();
 	}
+
+	public void Menu() {
+		Application.LoadLevel ("Menu");
+	}
 }
