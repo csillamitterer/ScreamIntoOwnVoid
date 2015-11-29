@@ -270,15 +270,11 @@ public class Resources : MonoBehaviour {
 		}
 
 		if (population <= 0) {
-			Debug.Log("You lose (everyone is dead)");
-		}
-		else if (fuel <= 0) {
-			Debug.Log("You lose (no more fuel)");
-		}
-		
-
-		if (distanceRemaining <= 0) {
-			Debug.Log ("You Win (" + population.ToString() + " population)" );
+			transform.root.BroadcastMessage("EndGame", "EVERYONE DIED\n\nYOU LOSE");
+		} else if (fuel <= 0) {
+			transform.root.BroadcastMessage("EndGame", "YOU RAN OUT OF FUEL\n\nYOU LOSE");
+		} else if (distanceRemaining <= 0) {
+			transform.root.BroadcastMessage("EndGame", "YOU WIN");
 		}
 	}
 }
