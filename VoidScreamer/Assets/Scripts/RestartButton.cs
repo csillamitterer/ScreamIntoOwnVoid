@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RestartButton : MonoBehaviour {
 	public void Restart() {
-		Application.LoadLevel(Application.loadedLevelName);
+		Application.LoadLevel("Game");
 	}
 
 	public void Quit() {

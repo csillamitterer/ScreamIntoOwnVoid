@@ -269,12 +269,16 @@ public class Resources : MonoBehaviour {
 			morale = 0;
 		}
 
-		if (population <= 0) {
-			transform.root.BroadcastMessage("EndGame", "EVERYONE DIED\n\nYOU LOSE");
+		if (food <= 0) {
+			transform.root.BroadcastMessage("EndGame", "Food");
+		}else if (water <= 0) {
+			transform.root.BroadcastMessage("EndGame", "Water");
+		}else if (population <= 0) {
+			transform.root.BroadcastMessage("EndGame", "Population");
 		} else if (fuel <= 0) {
-			transform.root.BroadcastMessage("EndGame", "YOU RAN OUT OF FUEL\n\nYOU LOSE");
+			transform.root.BroadcastMessage("EndGame", "Fuel");
 		} else if (distanceRemaining <= 0) {
-			transform.root.BroadcastMessage("EndGame", "YOU WIN");
+			transform.root.BroadcastMessage("EndGame", "Win");
 		}
 	}
 }
